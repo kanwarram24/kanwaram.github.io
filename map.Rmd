@@ -1,0 +1,24 @@
+---
+title: "R Markdown and Leaflet"
+author: "Kanwar Ram"
+date: "9/19/2020"
+output: html_document
+---
+# Jhon Snow Returns
+## Jhon Snow had enough, Now he knows that he is the true King of the 7 kingdoms and wants to go back and take his revenge, therefore I am helping him. 
+
+```{r echo=FALSE}
+library(leaflet)
+Icon <- makeIcon(
+  iconUrl = "https://awoiaf.westeros.org/images/6/64/Tomasz_Jedruszek_Kings_Landing.jpg",
+  iconWidth = 61*215/230, iconHeight = 61,
+  iconAnchorX = 61*215/230/2, iconAnchorY = 91
+)
+hopkinsLatLong <- data.frame(
+  lat = 42.6507,
+  lng = 18.0944)
+hopkinsLatLong %>% 
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(icon = Icon)
+```
